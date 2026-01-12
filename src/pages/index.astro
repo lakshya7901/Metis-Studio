@@ -1,9 +1,22 @@
 ---
+import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.jsx';
+import Hero from '../components/Hero.jsx';
+import Projects from '../components/Projects.jsx';
+import Contact from '../components/Contact.jsx';
+import Footer from '../components/Footer.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
+    <Header client:load />
+    <Hero />
+    <Projects client:visible />
+    <Contact client:visible />
+    <footer class="py-10 text-center text-gray-400 text-sm">
+      &copy; {new Date().getFullYear()} Your Name. Built with Astro & Tailwind.
+    </footer>
 </Layout>

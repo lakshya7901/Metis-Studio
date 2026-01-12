@@ -1,24 +1,51 @@
 import React, { useState } from 'react';
 
 const Contact = () => {
-  const [status, setStatus] = useState('idle'); // idle, sending, success
+  const [status, setStatus] = useState('idle'); // idle, sending, success, error
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('sending');
+
+    const formData = new FormData(e.target);
     
-    // Simulate a form submission
-    setTimeout(() => {
-      setStatus('success');
-      e.target.reset();
-      setTimeout(() => setStatus('idle'), 5000);
-    }, 1500);
+    // Pulling the key from your .env file
+    const apiKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
+    formData.append("access_key", apiKey);
+
+    // Optional: Add a subject line for your email notifications
+    formData.append("subject", "New Lead from Freelancer Website");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus('success');
+        e.target.reset();
+        // Reset button text after 5 seconds
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        console.error("Submission Error:", data);
+        setStatus('idle');
+        alert("Submission failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Fetch Error:", error);
+      setStatus('idle');
+      alert("Check your internet connection and try again.");
+    }
   };
 
   return (
     <section id="contact" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="bg-gray-900 rounded-[3rem] p-8 md:p-16 overflow-hidden relative">
+          
           {/* Decorative background glow */}
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-600/20 blur-[100px] rounded-full"></div>
           
@@ -36,7 +63,9 @@ const Contact = () => {
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-blue-400">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 uppercase font-bold tracking-widest">Email Me</p>
@@ -48,21 +77,27 @@ const Contact = () => {
 
             {/* Right Side: Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Anti-Spam Honeypot (Hidden from users) */}
+              <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+
               <div className="grid md:grid-cols-2 gap-4">
                 <input 
                   type="text" 
+                  name="name"
                   placeholder="Your Name" 
                   required
                   className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-blue-500 transition-colors"
                 />
                 <input 
                   type="email" 
+                  name="email"
                   placeholder="Email Address" 
                   required
                   className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-blue-500 transition-colors"
                 />
               </div>
               <textarea 
+                name="message"
                 placeholder="Tell me about your project..." 
                 rows="4"
                 required

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ThemeToggle from './ThemeToggle'; // Import the toggle
+import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,17 +28,19 @@ const Header = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        {/* Futuristic Logo */}
+
         <div className="group flex items-center gap-2">
-          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(37,99,235,0.5)] group-hover:rotate-90 transition-transform duration-500">
-             <div className="w-3 h-3 border-2 border-white rotate-45"></div>
-          </div>
+
+          <img 
+            src="MS.png" 
+            alt="METIS_Studio Logo" 
+            className="w-8 h-8 object-contain shadow-[0_0_15px_rgba(37,99,235,0.5)] group-hover:rotate-90 transition-transform duration-500"
+          />
           <a href="/" className="text-xl font-mono font-black tracking-tighter text-white">
-            METIS<span className="text-cyan-400">_</span>SYS
+            METIS<span className="text-cyan-400">_</span>Studio
           </a>
         </div>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
             <a 
@@ -52,7 +54,6 @@ const Header = () => {
             </a>
           ))}
           
-          {/* THEME TOGGLE ADDED HERE */}
           <ThemeToggle />
           
           <a 
@@ -67,7 +68,6 @@ const Header = () => {
           </a>
         </nav>
 
-        {/* Mobile Controls */}
         <div className="flex items-center gap-4 md:hidden">
           <ThemeToggle />
           <button 
@@ -85,7 +85,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation Dropdown */}
       <div className={`md:hidden absolute w-full left-0 transition-all duration-500 ease-in-out ${
         isOpen ? 'top-full opacity-100' : '-top-[500%] opacity-0'
       }`}>

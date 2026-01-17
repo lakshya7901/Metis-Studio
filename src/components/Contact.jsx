@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Contact = () => {
-  const [status, setStatus] = useState('idle'); // idle, sending, success, error
+  const [status, setStatus] = useState('idle');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,18 +36,16 @@ const Contact = () => {
 
   return (
     <section id="contact" className="relative py-24 bg-[#020617] overflow-hidden">
-      {/* Background Grid Pattern - Digital Frontier Style */}
+
       <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="group relative bg-slate-950 border border-slate-800 rounded-[2rem] p-8 md:p-16 overflow-hidden">
           
-          {/* Animated Glow Corners */}
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-cyan-500/10 blur-[100px] rounded-full group-hover:bg-cyan-500/20 transition-all duration-700"></div>
           <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-600/10 blur-[100px] rounded-full group-hover:bg-blue-600/20 transition-all duration-700"></div>
           
           <div className="grid lg:grid-cols-2 gap-16">
-            {/* Left Side: Terminal Style Info */}
             <div>
               <div className="inline-block px-3 py-1 mb-6 text-[10px] font-mono tracking-widest text-cyan-400 uppercase border border-cyan-400/30 bg-cyan-400/5 rounded-md">
                 Protocol: Communication_Initiation
@@ -69,13 +67,12 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-[10px] text-slate-500 uppercase font-mono tracking-[0.2em]">Secure Channel</p>
-                    <p className="text-white font-mono text-sm">hello@yourdomain.com</p>
+                    <p className="text-white font-mono text-sm">Khwaabknight@gmail.com</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Side: Futuristic Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
               <input type="checkbox" name="botcheck" className="hidden" />
 
@@ -112,7 +109,6 @@ const Contact = () => {
                 disabled={status === 'sending'}
                 className="relative w-full group/btn overflow-hidden rounded-xl p-[1px] font-bold transition-all disabled:opacity-50"
               >
-                {/* Button Gradient Border */}
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-400 group-hover:animate-pulse"></div>
                 
                 <div className="relative bg-slate-950 rounded-[11px] py-4 text-white group-hover:bg-transparent transition-colors">

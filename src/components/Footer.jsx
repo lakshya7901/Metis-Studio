@@ -5,7 +5,7 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-[#020617] border-t border-slate-800/60 pt-16 pb-8 overflow-hidden">
-      {/* Subtle Background HUD elements */}
+
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent"></div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -14,7 +14,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <a href="/" className="text-xl font-mono font-bold tracking-[0.2em] text-white flex items-center gap-2">
               <span className="w-2 h-2 bg-cyan-500 rounded-full animate-pulse"></span>
-              DEV_ARCHIVE<span className="text-cyan-500">.</span>SYS
+              METIS<span className="text-cyan-500">.</span>Studio
             </a>
             <p className="mt-4 text-slate-500 max-w-xs leading-relaxed font-light text-sm">
               Engineering high-performance digital frontiers. 
@@ -68,10 +68,9 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-[10px] font-mono text-slate-600 tracking-widest">
-            &copy; {currentYear} SYSTEM_CORE. ALL_RIGHTS_RESERVED.
+            &copy; {currentYear} METIS_Studio.   ALL_RIGHTS_RESERVED.
           </p>
           <div className="flex gap-6">
             <span className="text-[10px] font-mono text-slate-700">STATUS: ENCRYPTED</span>

@@ -38,12 +38,11 @@ const Projects = () => {
 
   return (
     <section id="work" className="relative py-24 bg-[#020617] overflow-hidden">
-      {/* HUD Background elements */}
+
       <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-500/[0.02] -skew-x-12 border-l border-white/5"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
-        {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>
             <div className="inline-block px-3 py-1 mb-4 text-[10px] font-mono tracking-[0.3em] text-cyan-500 uppercase border border-cyan-500/20 bg-cyan-500/5 rounded">
@@ -57,7 +56,6 @@ const Projects = () => {
             </p>
           </div>
 
-          {/* Futuristic Category Filter */}
           <div className="flex flex-wrap gap-3 bg-slate-900/50 p-2 rounded-xl border border-slate-800 backdrop-blur-md">
             {categories.map((cat) => (
               <button
@@ -75,14 +73,12 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* Project Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
             <div 
               key={index}
               className="group relative bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 hover:border-cyan-500/50 transition-all duration-500"
             >
-              {/* Image Container with Scan-line Overlay */}
               <div className="relative aspect-[4/3] overflow-hidden">
                 <div className="absolute inset-0 z-10 bg-[#020617]/40 group-hover:bg-transparent transition-colors duration-500"></div>
                 <img 
@@ -91,7 +87,6 @@ const Projects = () => {
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                 />
                 
-                {/* Terminal Overlay */}
                 <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6">
                    <div className="flex justify-end">
                       <span className="bg-cyan-500 text-slate-950 px-2 py-1 text-[9px] font-mono font-bold rounded">
@@ -107,7 +102,6 @@ const Projects = () => {
                 </div>
               </div>
 
-              {/* Content */}
               <div className="p-8 border-t border-slate-800">
                 <div className="flex justify-between items-center mb-4">
                   <div className="flex gap-2">

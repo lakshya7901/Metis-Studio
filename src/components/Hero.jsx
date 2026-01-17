@@ -3,14 +3,13 @@ import React from 'react';
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[#020617]">
-      {/* Background Grid */}
+
       <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-        {/* Enforced Grid Ratios: 1.2 parts for text, 0.8 parts for image */}
+
         <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
           
-          {/* Left Side: Content */}
           <div className="flex flex-col items-start text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md border border-cyan-400/30 bg-cyan-400/5 mb-6">
               <span className="relative flex h-2 w-2">
@@ -22,7 +21,6 @@ const Hero = () => {
               </span>
             </div>
 
-            {/* FIXED: Using 'max-w-min' or specific width to force the wrap on 'FRONTIER' */}
             <h1 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-black text-white tracking-tighter leading-[0.85] mb-8 uppercase max-w-[1ch] lg:max-w-none">
               BUILDING <br />
               THE <br />
@@ -52,7 +50,6 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Side: Image with HUD elements */}
           <div className="relative flex justify-center lg:justify-end">
              <div className="relative w-full max-w-[480px] rounded-2xl border border-slate-800 p-2 bg-slate-900/50 backdrop-blur-sm overflow-hidden group">
                 <img 
@@ -61,7 +58,6 @@ const Hero = () => {
                   className="w-full h-auto object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700"
                 />
                 
-                {/* HUD Top-Right Overlay */}
                 <div className="absolute top-4 right-4 z-20 bg-slate-950/90 border border-slate-800 p-3 rounded-lg backdrop-blur-md">
                    <div className="font-mono text-[8px] text-cyan-500 tracking-tighter mb-1 uppercase">Core_Engine_V2</div>
                    <div className="flex gap-1">
@@ -73,7 +69,6 @@ const Hero = () => {
                    </div>
                 </div>
 
-                {/* Experience Badge */}
                 <div className="absolute -bottom-2 left-4 z-20 bg-[#020617] border border-slate-800 p-4 rounded-xl shadow-2xl">
                   <div className="flex items-center gap-3">
                     <div className="text-2xl font-mono font-black text-white italic">05+</div>

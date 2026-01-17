@@ -2,21 +2,24 @@ import React, { useState } from 'react';
 
 const projects = [
   {
-    title: "E-Commerce Platform",
+    id: "01",
+    title: "E-COMMERCE_CORE",
     category: "Web App",
     image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1000&auto=format&fit=crop",
     tags: ["React", "Node.js", "Stripe"],
     link: "#"
   },
   {
-    title: "SaaS Dashboard",
+    id: "02",
+    title: "ANALYTICS_DASHBOARD",
     category: "UI/UX",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop",
     tags: ["Tailwind", "TypeScript", "Recharts"],
     link: "#"
   },
   {
-    title: "Brand Portfolio",
+    id: "03",
+    title: "ASTRO_FRAMEWORK_V1",
     category: "Design",
     image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1000&auto=format&fit=crop",
     tags: ["Astro", "Framer Motion"],
@@ -24,41 +27,49 @@ const projects = [
   }
 ];
 
-const categories = ["All", "Web App", "UI/UX", "Design"];
+const categories = ["ALL_FILES", "Web App", "UI/UX", "Design"];
 
 const Projects = () => {
-  const [activeTab, setActiveTab] = useState("All");
+  const [activeTab, setActiveTab] = useState("ALL_FILES");
 
-  const filteredProjects = activeTab === "All" 
+  const filteredProjects = activeTab === "ALL_FILES" 
     ? projects 
     : projects.filter(p => p.category === activeTab);
 
   return (
-    <section id="work" className="py-24 bg-gray-50/50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="work" className="relative py-24 bg-[#020617] overflow-hidden">
+      {/* HUD Background elements */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-500/[0.02] -skew-x-12 border-l border-white/5"></div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 tracking-tight">Featured Projects</h2>
-            <p className="text-gray-600 max-w-md">
-              A selection of my recent works where I've helped clients build scalable and beautiful digital products.
+            <div className="inline-block px-3 py-1 mb-4 text-[10px] font-mono tracking-[0.3em] text-cyan-500 uppercase border border-cyan-500/20 bg-cyan-500/5 rounded">
+              Status: Retrieving_Archives
+            </div>
+            <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter">
+              Mission <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">Archives</span>
+            </h2>
+            <p className="text-slate-500 max-w-md font-light leading-relaxed">
+              Selection of high-performance digital solutions deployed across the web frontier.
             </p>
           </div>
 
-          {/* Category Filter */}
-          <div className="flex flex-wrap gap-2">
+          {/* Futuristic Category Filter */}
+          <div className="flex flex-wrap gap-3 bg-slate-900/50 p-2 rounded-xl border border-slate-800 backdrop-blur-md">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveTab(cat)}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+                className={`px-4 py-2 rounded-lg text-[10px] font-mono tracking-widest transition-all ${
                   activeTab === cat 
-                  ? 'bg-blue-600 text-white shadow-md shadow-blue-200' 
-                  : 'bg-white text-gray-600 border border-gray-200 hover:border-blue-600 hover:text-blue-600'
+                  ? 'bg-blue-600 text-white shadow-[0_0_15px_rgba(37,99,235,0.4)]' 
+                  : 'text-slate-500 hover:text-slate-300'
                 }`}
               >
-                {cat}
+                {cat.toUpperCase()}
               </button>
             ))}
           </div>
@@ -69,36 +80,46 @@ const Projects = () => {
           {filteredProjects.map((project, index) => (
             <div 
               key={index}
-              className="group relative bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500"
+              className="group relative bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 hover:border-cyan-500/50 transition-all duration-500"
             >
-              {/* Image Container */}
-              <div className="aspect-[4/3] overflow-hidden">
+              {/* Image Container with Scan-line Overlay */}
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="absolute inset-0 z-10 bg-[#020617]/40 group-hover:bg-transparent transition-colors duration-500"></div>
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                 />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
-                  <a 
+                
+                {/* Terminal Overlay */}
+                <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6">
+                   <div className="flex justify-end">
+                      <span className="bg-cyan-500 text-slate-950 px-2 py-1 text-[9px] font-mono font-bold rounded">
+                        ENCRYPTED_FILE
+                      </span>
+                   </div>
+                   <a 
                     href={project.link}
-                    className="bg-white text-gray-900 px-6 py-3 rounded-xl font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                    className="w-full bg-white text-slate-950 py-3 rounded-lg font-mono font-black text-xs text-center tracking-[0.2em] transform translate-y-4 group-hover:translate-y-0 transition-all"
                   >
-                    View Case Study
+                    INIT_CASE_STUDY
                   </a>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-3">
-                  {project.tags.map(tag => (
-                    <span key={tag} className="text-[10px] font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-2 py-1 rounded">
-                      {tag}
-                    </span>
-                  ))}
+              <div className="p-8 border-t border-slate-800">
+                <div className="flex justify-between items-center mb-4">
+                  <div className="flex gap-2">
+                    {project.tags.slice(0, 2).map(tag => (
+                      <span key={tag} className="text-[9px] font-mono tracking-tighter text-cyan-500/60 uppercase">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="text-[10px] font-mono text-slate-700">MOD_{index + 1}</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-xl font-mono font-bold text-white group-hover:text-cyan-400 transition-colors">
                   {project.title}
                 </h3>
               </div>

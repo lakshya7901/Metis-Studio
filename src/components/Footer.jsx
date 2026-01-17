@@ -4,48 +4,79 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-50 border-t border-gray-100 pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-6">
+    <footer className="relative bg-[#020617] border-t border-slate-800/60 pt-16 pb-8 overflow-hidden">
+      {/* Subtle Background HUD elements */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent"></div>
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           
           <div className="col-span-1 md:col-span-2">
-            <a href="/" className="text-xl font-bold tracking-tighter text-gray-900">
-              DEV<span className="text-blue-600">.</span>PORTFOLIO
+            <a href="/" className="text-xl font-mono font-bold tracking-[0.2em] text-white flex items-center gap-2">
+              <span className="w-2 h-2 bg-cyan-500 rounded-full animate-pulse"></span>
+              DEV_ARCHIVE<span className="text-cyan-500">.</span>SYS
             </a>
-            <p className="mt-4 text-gray-500 max-w-xs leading-relaxed">
-              Crafting high-performance digital solutions with modern technologies. Available for freelance opportunities worldwide.
+            <p className="mt-4 text-slate-500 max-w-xs leading-relaxed font-light text-sm">
+              Engineering high-performance digital frontiers. 
+              <span className="block mt-2 text-[10px] font-mono text-slate-600 uppercase">Available for new mission parameters worldwide.</span>
             </p>
           </div>
 
           <div>
-            <h3 className="font-bold text-gray-900 mb-4">Navigation</h3>
-            <ul className="space-y-2">
-              <li><a href="#work" className="text-gray-600 hover:text-blue-600 transition-colors">Work</a></li>
-              <li><a href="#services" className="text-gray-600 hover:text-blue-600 transition-colors">Services</a></li>
-              <li><a href="#contact" className="text-gray-600 hover:text-blue-600 transition-colors">Contact</a></li>
+            <h3 className="font-mono text-[11px] uppercase tracking-[0.3em] text-slate-400 mb-6">Directory</h3>
+            <ul className="space-y-3">
+              <li>
+                <a href="#work" className="text-sm text-slate-500 hover:text-cyan-400 transition-all flex items-center gap-2 group">
+                  <span className="w-0 h-[1px] bg-cyan-400 transition-all group-hover:w-3"></span>
+                  Archive_Work
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="text-sm text-slate-500 hover:text-cyan-400 transition-all flex items-center gap-2 group">
+                  <span className="w-0 h-[1px] bg-cyan-400 transition-all group-hover:w-3"></span>
+                  Skill_Modules
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="text-sm text-slate-500 hover:text-cyan-400 transition-all flex items-center gap-2 group">
+                  <span className="w-0 h-[1px] bg-cyan-400 transition-all group-hover:w-3"></span>
+                  Initiate_Contact
+                </a>
+              </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-bold text-gray-900 mb-4">Social</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-gray-600 hover:text-blue-600 transition-colors inline-flex items-center gap-2">LinkedIn</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-blue-600 transition-colors inline-flex items-center gap-2">GitHub</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-blue-600 transition-colors inline-flex items-center gap-2">Twitter / X</a></li>
+            <h3 className="font-mono text-[11px] uppercase tracking-[0.3em] text-slate-400 mb-6">External_Links</h3>
+            <ul className="space-y-3">
+              <li>
+                <a href="#" className="text-sm text-slate-500 hover:text-blue-400 transition-all flex items-center gap-2">
+                  <span className="text-[10px] opacity-30">01</span> LinkedIn
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-sm text-slate-500 hover:text-blue-400 transition-all flex items-center gap-2">
+                  <span className="text-[10px] opacity-30">02</span> GitHub
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-sm text-slate-500 hover:text-blue-400 transition-all flex items-center gap-2">
+                  <span className="text-[10px] opacity-30">03</span> Instagram
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-400 text-sm">
-            &copy; {currentYear} Your Name. All rights reserved.
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-[10px] font-mono text-slate-600 tracking-widest">
+            &copy; {currentYear} SYSTEM_CORE. ALL_RIGHTS_RESERVED.
           </p>
-          <button 
-            onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
-            className="text-sm font-semibold text-gray-900 hover:text-blue-600 transition-colors flex items-center gap-2"
-          >
-            Back to top ↑
-          </button>
+          <div className="flex gap-6">
+            <span className="text-[10px] font-mono text-slate-700">STATUS: ENCRYPTED</span>
+            <span className="text-[10px] font-mono text-cyan-500/50">V.2026.1.0</span>
+          </div>
         </div>
       </div>
     </footer>

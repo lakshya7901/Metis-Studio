@@ -1,2 +1,24 @@
 @import "tailwindcss";
 @source "../**/*.{astro,html,js,jsx,ts,tsx}";
+
+@theme {
+  /* CRITICAL: This tells Tailwind 4 to use the .dark class as the toggle */
+  --variant-dark: .dark &;
+  
+  /* Custom Futuristic Colors */
+  --color-obsidian: #020617;
+  --color-cyan-neon: #22d3ee;
+}
+
+/* Base transitions for smooth theme switching */
+:root {
+  background-color: white;
+  color: #0f172a;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Force the background to change when .dark is present */
+.dark {
+  background-color: #020617;
+  color: white;
+}
